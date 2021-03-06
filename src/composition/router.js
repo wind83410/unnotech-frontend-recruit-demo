@@ -1,11 +1,17 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
-const routes = [{
-  path: '/',
-  component: () => import('/@/components/HelloWorld')
-}]
+const routes = [
+  {
+    path: '/',
+    component: () => import('/@/components/BookList.vue'),
+    children: [{
+      path: ':bookId',
+      component: () => import('/@/components/BookEdit.vue')
+    }]
+  }
+]
 
 export const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory('/books/'),
   routes
 })

@@ -1,0 +1,54 @@
+@import './vendors/_bootstrap';
+
+.img-book {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+// Book list
+.book-list {
+  @include media-breakpoint-up(md) {
+    padding: 10px 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}
+
+// Book cards
+.book-card {
+  --card-border: #b5b6b8;
+  --card-bg: #ffffff;
+  --card-word: #212529;
+  overflow: hidden;
+  border: 1px var(--card-border) solid;
+  color: var(--card-word);
+  border-radius: 10px;
+  &:hover {
+    box-shadow: 0 5px 6px $gray-200;
+    cursor: pointer;
+  }
+}
+
+.book-card__body--title {
+  background-color: var(--card-bg);
+  text-align: center;
+  font-size: 1rem;
+  @include media-breakpoint-up(md) {
+    text-align: initial;
+  }
+}
+
+.book-card-active {
+  --card-border: #0d6efd;
+  --card-bg: #d7e7ff;
+  --card-word: #084094;
+}
+
+// Book edit
+.edit-book__img {
+  display: none;
+  @include media-breakpoint-up(sm) {
+    display: initial;
+  }
+}
