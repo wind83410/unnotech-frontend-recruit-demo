@@ -20,7 +20,7 @@
 
 <script>
 import { books, getBookProfile } from '/@/composition/store'
-import BookCard from './BookCard.vue'
+import BookCard from '../components/BookCard.vue'
 
 export default {
   setup() {

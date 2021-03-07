@@ -1,4 +1,4 @@
-import { ref, reactive, toRaw, computed } from 'vue'
+import { reactive, toRaw, computed } from 'vue'
 
 export const books = reactive([]) // 書的圖片和標題
 export const regBook = reactive({ // 編輯表格用
