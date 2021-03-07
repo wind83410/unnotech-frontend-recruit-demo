@@ -134,12 +134,12 @@ import { onMounted } from 'vue'
 
 export default {
   setup() {
-    const submit = () => {
+    const submit = () => { // 提交成功後更新
       setBookProperties()
       getBookProfile(regBook.id)
     }
 
-    const isWhole = (val) => {
+    const isWhole = (val) => { // 檢驗規則
       if (val === '') return '此欄位不可空白'
       else if (Number.isNaN(val)) return '此欄位必須是數字'
       else {

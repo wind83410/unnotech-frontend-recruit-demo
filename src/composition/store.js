@@ -1,21 +1,22 @@
 import { ref, reactive, toRaw, computed } from 'vue'
 
-export const books = reactive([]) // 書的圖片和標題
-export const regBook = reactive({
+export const books = reactive([]) // 所有書的圖片和標題
+export const regBook = reactive({ // 儲存焦點書籍細節
   id: '',
   price: 0,
   count: 0
 })
-
+// 焦點書籍圖片
 export const bookInFocus = computed(() => {
   const theBook = books.find(book => book.id === regBook.id)
   return theBook ? theBook : {}
 })
 
 // 狀態四種值：init, error, working, done
+// 提供 UI 檔板，防止使用者在非同步請求回覆前更動表格
 export const workState = ref('init')
 
-// 書名和圖片
+// 取得書籍標題和圖片
 export const getBooks = () => {
   fetch('https://fe-interview-api.unnotech.com/books')
     .then((response) => {

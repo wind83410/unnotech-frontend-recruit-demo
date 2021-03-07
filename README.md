@@ -2,11 +2,13 @@
 
 ## 本地端執行專案
 
-1. 開啟終端機
+1. 開啟終端機並在指定資料夾初始化 git
+
+    `git init`
 
 1. 在指定資料夾內，從 Github 上複製專案
 
-    `git pull https://github.com/wind83410/unnotech-frontend-recruit-demo.git`
+    `git pull https://github.com/wind83410/unnotech-frontend-recruit-demo.git master`
 
 2. 以 npm 安裝
 
@@ -29,7 +31,11 @@
     * `all.scss`：引入各分類樣式
     * `vendors`：第三方樣式檔統一放置處
 
-為使元件盡可能統一處理畫面或內部處理狀態，將用非同步取得的資料、資料處理和操作函數統一寫進`store.js`並向外輸出給其他元件使用。
+邏輯：
+
+* 為使元件盡可能統一處理畫面或內部處理狀態，將用非同步取得的資料、資料處理和操作函數統一寫進`store.js`並向外輸出給其他元件使用。
+* 書籍展示卡片 (book card) 僅做顯示用；書籍陳列 (book list) 則根據書籍標題和圖片動態產生卡片，並設定在點擊卡片時發送請求載入書籍細節，並顯示在書籍細節 (book detail) 頁面。
+* 修改後的書籍細節在傳送前，會在各欄位檢驗，檢驗通過之後才會上傳；上傳成功後會讀取更新後的書籍細節。
 
 ## 使用的套件
 
