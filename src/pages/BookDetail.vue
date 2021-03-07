@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-2 py-3">
+  <div class="edit-book container mt-2 py-3">
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="row">
@@ -39,7 +39,7 @@
                       v-bind="field"
                       id="price"
                       class="form-control"
-                      :class="{ 'is-invalid': !(meta.valid && meta.dirty) }"
+                      :class="{ 'is-invalid': !meta.valid }"
                     />
                   </VeeField>
                   <button
@@ -82,7 +82,7 @@
                       type="number"
                       id="count"
                       class="form-control"
-                      :class="{ 'is-invalid': !(meta.valid && meta.dirty) }"
+                      :class="{ 'is-invalid': !meta.valid }"
                     />
                   </VeeField>
                   <button
@@ -107,11 +107,18 @@
         </div>
       </div>
     </div>
+    <div
+      class="ui-block position-absolute d-flex align-items-center justify-content-center"
+      v-if="workState === 'working'"
+    >
+      <div class="spinner-border"></div>
+    </div>
   </div>
 </template>
 
 <script>
 import {
+  workState,
   regBook,
   bookInFocus,
   getBookProfile,
@@ -151,15 +158,14 @@ export default {
 
     return {
       regBook,
+      workState,
       isWhole,
       submit,
-      bookInFocus
+      bookInFocus,
+      VeeField,
+      VeeError,
+      VeeForm
     }
-  },
-  components: {
-    VeeField,
-    VeeError,
-    VeeForm
   }
 }
 </script>
