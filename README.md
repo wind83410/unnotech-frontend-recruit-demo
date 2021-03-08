@@ -2,6 +2,8 @@
 
 ## 本地端執行專案
 
+務必注意本地端開發環境需有 Node.js 版本至少在 12 以上，瀏覽器需支援帶有 tag="module" 的 script 標籤以及 dynamic import()。[詳見 Vite 的開發環境和瀏覽器支援需求](https://vitejs.dev/guide/#browser-support)
+
 1. 開啟終端機並在指定資料夾初始化 git
 
     `git init`
